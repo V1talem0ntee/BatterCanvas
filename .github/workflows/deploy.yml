@@ -1,0 +1,91 @@
+name: Deploy frontend to AWS EC2
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "application/frontend/**"
+      - ".github/workflows/deploy.yml"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Validate deployment secrets
+        shell: bash
+        run: |
+          if [ -z "${{ secrets.EC2_HOST }}" ]; then
+            echo "EC2_HOST secret is missing"
+            exit 1
+          fi
+
+          if [ -z "${{ secrets.EC2_SSH_KEY }}" ]; then
+            echo "EC2_SSH_KEY secret is missing"
+            exit 1
+          fi
+
+      - name: Configure SSH
+        shell: bash
+        env:
+          EC2_HOST: ${{ secrets.EC2_HOST }}
+          EC2_SSH_KEY: ${{ secrets.EC2_SSH_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+
+          printf '%s\n' "$EC2_SSH_KEY" > ~/.ssh/ec2_key
+          chmod 600 ~/.ssh/ec2_key
+
+          echo "Testing network access to EC2..."
+          timeout 10 bash -c "</dev/tcp/$EC2_HOST/22" || {
+            echo "Cannot reach EC2 on port 22."
+            echo "Check the EC2_HOST secret and AWS security group."
+            exit 1
+          }
+
+          ssh-keyscan -T 10 -H "$EC2_HOST" >> ~/.ssh/known_hosts
+
+      - name: Test SSH login
+        shell: bash
+        env:
+          EC2_HOST: ${{ secrets.EC2_HOST }}
+        run: |
+          ssh \
+            -i ~/.ssh/ec2_key \
+            -o BatchMode=yes \
+            -o ConnectTimeout=10 \
+            ubuntu@"$EC2_HOST" \
+            "echo 'SSH connection successful'"
+
+      - name: Pull, build, and deploy frontend
+        shell: bash
+        env:
+          EC2_HOST: ${{ secrets.EC2_HOST }}
+        run: |
+          ssh -i ~/.ssh/ec2_key ubuntu@"$EC2_HOST" << 'EOF'
+            set -e
+
+            cd ~/csc648-848-su26-project-BigBacks-04
+
+            git fetch origin master
+            git reset --hard origin/master
+            git clean -fd
+
+            cd application/frontend
+
+            if [ -f package-lock.json ]; then
+              npm ci
+            else
+              npm install
+            fi
+
+            npm run build
+
+            sudo rm -rf /var/www/html/*
+            sudo cp -r dist/* /var/www/html/
+            sudo chown -R www-data:www-data /var/www/html
+            sudo chmod -R 755 /var/www/html
+
+            echo "Frontend deployment completed."
+          EOF

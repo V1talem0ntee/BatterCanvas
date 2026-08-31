@@ -1,0 +1,221 @@
+.profile-page {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 18px 48px;
+  color: #17223b;
+  text-align: left;
+}
+
+.profile-title {
+  padding: 12px 0 10px;
+}
+
+.profile-title h1 {
+  margin: 0;
+  color: var(--navy, #0d1f4e);
+  font-size: 40px;
+}
+
+.profile-loading {
+  padding: 40px 0;
+  color: #64748b;
+  text-align: center;
+}
+
+.profile-error {
+  color: #9b1c1c;
+}
+
+.profile-message {
+  margin: 0 0 14px;
+  padding: 9px 14px;
+  border: 1px solid #bfd4c9;
+  border-radius: 6px;
+  background: #eef7f1;
+  color: #1f5f3d;
+  font-size: 13px;
+}
+
+.profile-home-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  background: #aab0b8;
+  color: #1c1c1c;
+  cursor: pointer;
+}
+
+/* Panels */
+
+.profile-panel {
+  overflow: hidden;
+  margin-bottom: 16px;
+  border: 1px solid #d8dee8;
+  border-radius: 8px;
+  background: #f4f6f8;
+}
+
+.profile-panel > header {
+  display: flex;
+  min-height: 46px;
+  padding: 12px 16px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  border-bottom: 1px solid #d8dee8;
+  background: #dedfe1;
+}
+
+.profile-panel > header h2 {
+  margin: 0;
+  color: #17223b;
+  font-family: 'Figtree', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.profile-bottom-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.profile-update-button {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 5px;
+  background: #1c1c1c;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.profile-update-button:hover {
+  background: #333;
+}
+
+/* Read-only field display */
+
+.profile-field-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+  padding: 16px;
+}
+
+.profile-field {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.profile-field-label {
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+}
+
+.profile-field-value {
+  color: #17223b;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Edit form */
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 16px;
+}
+
+.profile-field.readonly {
+  padding: 8px 10px;
+  border-radius: 5px;
+  background: #e9ecf1;
+}
+
+.profile-input-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.profile-input-field input {
+  padding: 9px 10px;
+  border: 1px solid #bfc9d6;
+  border-radius: 5px;
+  background: #fff;
+  color: #17223b;
+  font: inherit;
+  font-size: 13px;
+}
+
+.profile-input-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.profile-form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.profile-save-button {
+  padding: 9px 18px;
+  border: none;
+  border-radius: 5px;
+  background: #1c1c1c;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.profile-save-button:hover:not(:disabled) {
+  background: #333;
+}
+
+.profile-save-button:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+.profile-cancel-button {
+  padding: 9px 18px;
+  border: 1px solid #bfc9d6;
+  border-radius: 5px;
+  background: #fff;
+  color: #334155;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.profile-cancel-button:hover {
+  background: #f1f4f8;
+}
+
+@media (max-width: 720px) {
+  .profile-bottom-row {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-input-row {
+    grid-template-columns: 1fr;
+  }
+}
+.major-change-status { display: flex; margin: 14px 18px 0; padding: 12px; align-items: center; gap: 10px; border: 1px solid #f4c66c; border-radius: 6px; background: #fff8e7; color: #70420b; font-size: 12px; }
+.major-change-status span { flex: 1; }
+.major-change-status button { border: 0; background: transparent; color: #9b1c1c; font-weight: 700; cursor: pointer; }
+.major-change-form { display: grid; gap: 12px; margin: 14px 18px 0; padding: 15px; border: 1px solid #cbd5e1; border-radius: 7px; background: #f8fafc; }
+.major-change-form label { display: grid; gap: 5px; color: #334155; font-size: 12px; font-weight: 700; }
+.major-change-form select, .major-change-form textarea { width: 100%; padding: 9px 10px; border: 1px solid #b8c4d3; border-radius: 5px; background: #fff; color: #17223b; font: inherit; }
+.major-change-form textarea { min-height: 76px; resize: vertical; }

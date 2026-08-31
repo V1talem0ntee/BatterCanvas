@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<!-- Created using Krita: https://krita.org -->
+<svg xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:krita="http://krita.org/namespaces/svg/krita"
+    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+    width="115.2pt"
+    height="115.2pt"
+    viewBox="0 0 115.2 115.2">
+<defs/>
+<path id="shape0" transform="matrix(0.99981068076871 0.0194577136583266 -0.0194577136583266 0.99981068076871 62.1311139778838 0.506579623147175)" fill="none" stroke="#3cabff" stroke-width="2.88" stroke-linecap="square" stroke-linejoin="bevel" d="M51.6125 0C51.6125 36.9748 31.3604 57.1042 0 57.1042" sodipodi:nodetypes="cc"/><path id="shape1" transform="matrix(0.99981068076871 0.0194577136583266 -0.0194577136583266 0.99981068076871 60.8399962760829 57.599996474398)" fill="none" stroke="#3cabff" stroke-width="2.88" stroke-linecap="square" stroke-linejoin="bevel" d="M0 0C35.2971 0 53.9525 25.1426 53.9525 64.0923" sodipodi:nodetypes="cc"/><path id="shape2" transform="translate(59.399996364223, 0.179999988982487)" fill="none" stroke="#3cabff" stroke-width="2.784" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 0L0 115.2" sodipodi:nodetypes="cc"/><path id="shape3" transform="matrix(0.999768230006436 0.0215287312630654 -0.0215287312630654 0.999768230006436 3.21665755481251 0.601791692599706)" fill="none" stroke="#3aaaff" stroke-width="2.88" stroke-linecap="square" stroke-linejoin="bevel" d="M55.6562 0C55.6562 36.6546 33.8174 56.6098 0 56.6098" sodipodi:nodetypes="cc"/><path id="shape4" transform="matrix(0.999768230006436 0.0215287312630654 -0.0215287312630654 0.999768230006436 1.99792048081768 57.1984667322214)" fill="none" stroke="#3aaaff" stroke-width="2.88" stroke-linecap="square" stroke-linejoin="bevel" d="M0 0C37.7343 0 57.6779 24.4608 57.6779 62.3542" sodipodi:nodetypes="cc"/><rect id="shape5" transform="translate(0.899999944912446, 0.835321549025606)" fill="none" stroke="#26a1ff" stroke-width="2.88" stroke-linecap="square" stroke-linejoin="bevel" width="113.219993069989" height="113.285189722253"/>
+</svg>

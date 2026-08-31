@@ -1,0 +1,809 @@
+.degree-planner-page {
+    --planner-navbar-height: 88px;
+
+    width: 100%;
+    height: calc(100vh - var(--planner-navbar-height));
+    height: calc(100dvh - var(--planner-navbar-height));
+
+    padding: 18px 24px 22px;
+    overflow: hidden;
+}
+
+.degree-planner-container {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 100%;
+    max-width: 1500px;
+    min-height: 0;
+
+    margin: 0 auto;
+}
+
+.degree-planner-page h1 {
+    flex-shrink: 0;
+
+    margin: 0 0 14px;
+    font-size: 38px;
+    text-align: center;
+}
+
+.planner-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-shrink: 0;
+    gap: 14px;
+    flex-wrap: wrap;
+
+    width: 100%;
+    margin-bottom: 14px;
+    padding: 11px 14px;
+
+    background-color: white;
+    border: 1px solid #d9d9d9;
+    border-radius: 10px;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.05);
+}
+
+.semester-controls {
+    display: flex;
+    align-items: flex-end;
+    gap: 9px;
+    flex-wrap: wrap;
+}
+
+.planner-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.planner-field label {
+    color: #111;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.planner-field select {
+    min-width: 145px;
+    height: 39px;
+    padding: 6px 10px;
+
+    appearance: auto;
+    -webkit-appearance: menulist;
+
+    background-color: white;
+    color: #222;
+
+    border: 1px solid #b8c2cc;
+    border-radius: 7px;
+
+    font-family: "Figtree", sans-serif;
+    font-size: 14px;
+}
+
+.planner-field select:focus {
+    border-color: #2cb2ff;
+    outline: 2px solid rgba(44, 178, 255, 0.2);
+}
+
+.planner-field select option {
+    background-color: white;
+    color: #222;
+}
+
+.roadmap-selector select {
+    min-width: 235px;
+}
+
+.roadmap-selector select.roadmap-placeholder {
+    color: #777;
+}
+
+.add-term-button {
+    min-height: 39px;
+    padding: 7px 14px;
+
+    background-color: black;
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    font-family: "Figtree", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.add-term-button:hover {
+    background-color: #555;
+}
+
+.add-term-button:disabled {
+    background-color: #b5b5b5;
+    cursor: not-allowed;
+}
+
+.degree-planner-layout {
+    display: grid;
+    grid-template-columns: 330px minmax(0, 1fr);
+    flex: 1;
+    gap: 18px;
+
+    min-height: 0;
+    overflow: hidden;
+}
+
+/* Left scrollable course panel */
+
+.course-catalog-panel {
+    height: 100%;
+    min-height: 0;
+    padding: 18px;
+
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+
+    background-color: white;
+    border: 1px solid #d9d9d9;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+}
+
+.catalog-heading {
+    padding-bottom: 14px;
+    border-bottom: 1px solid #dedede;
+}
+
+.catalog-heading h2 {
+    margin: 0 0 6px;
+    color: var(--navy);
+    font-size: 22px;
+}
+
+.catalog-heading p {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* Collapsible course sections */
+
+.catalog-section {
+    margin-top: 14px;
+    border: 1px solid #d9d9d9;
+    border-radius: 8px;
+    background-color: #fafafa;
+    overflow: hidden;
+}
+
+.catalog-section-summary {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    min-height: 47px;
+    padding: 10px 36px 10px 12px;
+
+    position: relative;
+
+    background-color: #f4f4f4;
+    color: var(--navy);
+
+    cursor: pointer;
+    list-style: none;
+}
+
+.catalog-section-summary::-webkit-details-marker {
+    display: none;
+}
+
+.catalog-section-summary:hover {
+    background-color: #eceff3;
+}
+
+.catalog-section-summary::after {
+    content: "+";
+
+    position: absolute;
+    right: 12px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #555;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.catalog-section[open] .catalog-section-summary::after {
+    content: "−";
+}
+
+.catalog-section-title {
+    flex: 1;
+
+    font-family: "Fraunces", serif;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.catalog-section-count {
+    color: #666;
+    font-size: 11px;
+    font-weight: 600;
+    text-align: right;
+}
+
+.catalog-section-content {
+    padding: 11px;
+    border-top: 1px solid #d9d9d9;
+}
+
+.elective-description {
+    margin: 0 0 10px;
+    color: #666;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.elective-progress {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    margin-bottom: 12px;
+    padding: 10px;
+
+    background-color: #fff8e6;
+    color: #755000;
+
+    border: 1px solid #f0d58b;
+    border-radius: 7px;
+
+    font-size: 12px;
+    line-height: 1.35;
+}
+
+.elective-progress.complete {
+    background-color: #eaf8ef;
+    color: #166534;
+    border-color: #9dd6ae;
+}
+
+.elective-status {
+    margin-top: 2px;
+}
+
+.catalog-course-card {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    margin-bottom: 9px;
+    padding: 12px;
+
+    background-color: white;
+    border: 1px solid #d9d9d9;
+    border-radius: 8px;
+
+    text-align: left;
+    cursor: grab;
+
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.catalog-course-card:last-child {
+    margin-bottom: 0;
+}
+
+.catalog-course-card:hover {
+    border-color: #2cb2ff;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.07);
+}
+
+.catalog-course-card:active {
+    cursor: grabbing;
+}
+
+.catalog-course-card strong {
+    color: var(--navy);
+    font-size: 16px;
+}
+
+.catalog-course-name {
+    font-size: 14px;
+}
+
+.catalog-course-card small {
+    color: #666;
+    font-size: 12px;
+}
+
+.catalog-course-card p {
+    margin: 2px 0 0;
+    color: #555;
+    font-size: 12px;
+    line-height: 1.35;
+}
+
+.catalog-course-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6px;
+
+    margin-bottom: 3px;
+}
+
+.course-category-badge {
+    display: inline-block;
+    width: fit-content;
+    padding: 3px 7px;
+
+    border-radius: 5px;
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.course-category-badge.major {
+    background-color: #e8efff;
+    color: #234a9f;
+}
+
+.course-category-badge.ge {
+    background-color: #e8f8ee;
+    color: #16723a;
+}
+
+.course-category-badge.elective {
+    background-color: #f5ebff;
+    color: #7040a0;
+}
+
+.suggested-course {
+    background-color: #eef8ff;
+    border: 2px solid #2cb2ff;
+}
+
+.suggested-course-label {
+    display: inline-block;
+    width: fit-content;
+    padding: 3px 6px;
+
+    background-color: #2cb2ff;
+    color: white;
+    border-radius: 5px;
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+/* .drag-instruction {
+    margin-top: 4px;
+    color: #777;
+    font-size: 11px;
+    font-style: italic;
+} */
+
+.empty-catalog-message {
+    margin: 0;
+    padding: 11px;
+
+    background-color: white;
+    border-radius: 7px;
+
+    color: #777;
+    font-size: 12px;
+    text-align: center;
+}
+
+/* Right scrollable year panel */
+
+.planner-years {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    height: 100%;
+    min-height: 0;
+    padding-right: 5px;
+
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+}
+
+.planner-year-card {
+    flex-shrink: 0;
+
+    width: 100%;
+    padding: 16px;
+
+    background-color: white;
+    border: 1px solid #d9d9d9;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+}
+
+.planner-year-heading {
+    margin: 0 0 14px;
+    padding: 9px;
+
+    background-color: #f1f1f1;
+    color: var(--navy);
+    border-radius: 7px;
+
+    font-size: 20px;
+    text-align: center;
+}
+
+.planner-term-grid {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(235px, 1fr)
+    );
+    gap: 14px;
+}
+
+.planner-term-card {
+    min-height: 280px;
+    padding: 13px;
+
+    background-color: #fafafa;
+    border: 1px solid #d9d9d9;
+    border-radius: 9px;
+}
+
+.planner-term-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+
+    min-height: 42px;
+    margin-bottom: 11px;
+}
+
+.planner-term-header h3 {
+    margin: 0;
+    color: var(--navy);
+    font-size: 18px;
+}
+
+.optional-term-label {
+    display: inline-block;
+    margin-top: 4px;
+    padding: 2px 6px;
+
+    background-color: #fff3d6;
+    color: #8a5a00;
+    border-radius: 5px;
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.remove-term-button {
+    padding: 5px 8px;
+
+    background-color: transparent;
+    color: #dc2626;
+
+    border: 1px solid #dc2626;
+    border-radius: 6px;
+
+    font-family: "Figtree", sans-serif;
+    font-size: 11px;
+
+    cursor: pointer;
+}
+
+.remove-term-button:hover {
+    background-color: #fff0f0;
+}
+
+.term-drop-zone {
+    min-height: 210px;
+    padding: 8px;
+
+    background-color: white;
+    border: 2px dashed #c8c8c8;
+    border-radius: 8px;
+
+    transition:
+        border-color 0.15s ease,
+        background-color 0.15s ease;
+}
+
+.term-drop-zone.active {
+    background-color: #eef8ff;
+    border-color: #2cb2ff;
+}
+
+.empty-term-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 190px;
+    padding: 16px;
+
+    color: #777;
+    text-align: center;
+}
+
+.empty-term-area p {
+    margin: 0 0 5px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.empty-term-area span {
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.planned-course-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.planned-course-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+
+    padding: 10px;
+
+    background-color: white;
+    border: 1px solid #d9d9d9;
+    border-radius: 7px;
+
+    text-align: left;
+    cursor: grab;
+}
+
+.planned-course-card:active {
+    cursor: grabbing;
+}
+
+.planned-course-information {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.planned-course-information strong {
+    color: var(--navy);
+    font-size: 14px;
+}
+
+.planned-course-information span:last-of-type {
+    font-size: 12px;
+    line-height: 1.3;
+}
+
+.planned-course-information small {
+    color: #666;
+    font-size: 11px;
+}
+
+.remove-course-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    width: 23px;
+    height: 23px;
+    padding: 0;
+
+    background-color: transparent;
+    color: #dc2626;
+
+    border: 1px solid #dc2626;
+    border-radius: 50%;
+
+    font-size: 16px;
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+.remove-course-button:hover {
+    background-color: #dc2626;
+    color: white;
+}
+
+.empty-year-message {
+    padding: 28px 18px;
+
+    background-color: #fafafa;
+    border: 2px dashed #c8c8c8;
+    border-radius: 8px;
+
+    color: #777;
+    text-align: center;
+}
+
+.empty-year-message p {
+    margin: 0 0 5px;
+    font-weight: 600;
+}
+
+.empty-year-message span {
+    font-size: 13px;
+}
+
+
+.year-control-buttons {
+    position: sticky;
+    bottom: 0;
+    z-index: 5;
+
+    display: flex;
+    gap: 12px;
+    flex-shrink: 0;
+
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 2px;
+
+    background-color: var(--bg, #f5f5f5);
+}
+
+.add-year-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    gap: 8px;
+
+    min-height: 52px;
+    padding: 11px;
+
+    background-color: white;
+    color: var(--navy);
+
+    border: 2px dashed #aab4c0;
+    border-radius: 10px;
+
+    font-family: "Figtree", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.add-year-button span {
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.add-year-button:hover {
+    background-color: #f7f9fb;
+    border-color: #2cb2ff;
+}
+
+.remove-year-button {
+    min-height: 52px;
+    padding: 11px 18px;
+
+    background-color: white;
+    color: #dc2626;
+
+    border: 2px solid #dc2626;
+    border-radius: 10px;
+
+    font-family: "Figtree", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.remove-year-button:hover {
+    background-color: #fff0f0;
+}
+
+
+@media (max-width: 1100px) {
+    .degree-planner-layout {
+        grid-template-columns: 1fr;
+        grid-template-rows:
+            minmax(210px, 38%)
+            minmax(0, 1fr);
+    }
+
+    .course-catalog-panel {
+        width: 100%;
+    }
+}
+
+@media (max-width: 760px) {
+    .degree-planner-page {
+        --planner-navbar-height: 72px;
+        padding: 14px;
+    }
+
+    .degree-planner-page h1 {
+        margin-bottom: 10px;
+        font-size: 30px;
+    }
+
+    .planner-toolbar {
+        gap: 9px;
+        padding: 10px;
+    }
+
+    .semester-controls {
+        flex: 1;
+    }
+
+    .planner-field {
+        flex: 1;
+    }
+
+    .planner-field select {
+        width: 100%;
+        min-width: 120px;
+    }
+
+    .roadmap-selector {
+        flex: 1;
+    }
+
+    .roadmap-selector select {
+        width: 100%;
+        min-width: 190px;
+    }
+}
+
+@media (max-width: 600px) {
+    .planner-toolbar {
+        align-items: stretch;
+    }
+
+    .roadmap-selector {
+        width: 100%;
+    }
+
+    .semester-controls {
+        width: 100%;
+    }
+
+    .add-term-button {
+        width: 100%;
+    }
+
+    .planner-term-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .year-control-buttons {
+        flex-direction: column;
+    }
+
+    .remove-year-button,
+    .add-year-button {
+        width: 100%;
+    }
+}

@@ -1,0 +1,910 @@
+.course-search-page {
+    width: 100%;
+    min-height: 100vh;
+    padding: 40px 20px 60px;
+    box-sizing: border-box;
+    font-size: 18px;
+}
+
+.course-page-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.course-page-header h1 {
+    font-size: 44px;
+    margin: 0 0 12px;
+}
+
+.course-page-header p {
+    margin: 0;
+    color: gray;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.course-search-layout {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+    gap: 28px;
+    align-items: flex-start;
+}
+
+.course-left-panel,
+.campus-map-panel {
+    background: white;
+    border: 1px solid #d9d9d9;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+}
+
+.campus-map-panel {
+    position: sticky;
+    top: 95px;
+    height: calc(100vh - 115px);
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-bottom: 82px;
+}
+
+.panel-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.campus-map-panel .panel-heading {
+    margin-bottom: 14px;
+}
+
+.panel-heading h2 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.course-search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.course-search-row {
+    width: 100%;
+}
+
+.course-search-row input {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.course-search-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    gap: 12px;
+    width: 100%;
+}
+
+.course-search-actions .filter-toggle-button,
+.course-search-actions .course-search-button {
+    width: 100%;
+    min-width: 0;
+}
+
+.course-search-form input,
+.course-search-form select {
+    flex: 1;
+    min-width: 0;
+    height: 54px;
+    padding: 12px 16px;
+    box-sizing: border-box;
+
+    background-color: white;
+    color: #222;
+
+    border: 1px solid #b8c2cc;
+    border-radius: 7px;
+
+    font-family: "Figtree", sans-serif;
+    font-size: 19px;
+}
+
+.course-search-form input::placeholder {
+    color: #777;
+    opacity: 1;
+}
+
+.course-search-form select {
+    appearance: auto;
+    -webkit-appearance: menulist;
+    color-scheme: light;
+}
+
+.course-search-form select option {
+    background-color: white;
+    color: #222;
+}
+
+.course-search-form input:focus,
+.course-search-form select:focus {
+    border-color: #2cb2ff;
+    outline: 2px solid rgba(44, 178, 255, 0.2);
+}
+
+.course-filter-panel {
+    width: 100%;
+    padding: 16px;
+    box-sizing: border-box;
+
+    background: #f8fafc;
+
+    border: 1px solid #d9e1e8;
+    border-radius: 10px;
+}
+
+.course-filter-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.course-filter-grid label {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.course-filter-grid label span {
+    color: #475569;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.course-filter-grid select {
+    width: 100%;
+    height: 42px;
+    padding: 8px 10px;
+
+    background-color: white;
+    color: #222;
+
+    font-size: 14px;
+}
+
+.course-filter-grid select option {
+    background-color: white;
+    color: #222;
+}
+
+.clear-filter-button {
+    align-self: end;
+    min-height: 42px;
+
+    background: white;
+    color: #334155;
+
+    border: 1px solid #94a3b8;
+    border-radius: 12px;
+
+    font-family: "Figtree", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.clear-filter-button:hover {
+    border-color: #111827;
+    background: #111827;
+    color: white;
+}
+
+.filter-toggle-button,
+.course-search-button {
+    min-height: 54px;
+    padding: 10px 18px;
+
+    border-radius: 12px;
+
+    font-family: "Figtree", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.filter-toggle-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    background: white;
+    color: #334155;
+
+    border: 1px solid #94a3b8;
+}
+
+.filter-toggle-button:hover,
+.filter-toggle-button-open {
+    border-color: #2cb2ff;
+    background: rgba(44, 178, 255, 0.08);
+    color: #111827;
+}
+
+.filter-toggle-button span {
+    font-size: 11px;
+}
+
+.course-search-button,
+.expand-map-button {
+    min-width: 130px;
+    min-height: 52px;
+    padding: 12px 22px;
+
+    background-color: black;
+    color: white;
+
+    border: none;
+    border-radius: 12px;
+
+    font-family: "Figtree", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.course-search-button:hover,
+.expand-map-button:hover {
+    background-color: gray;
+}
+
+.course-search-button:disabled {
+    background-color: #a8dfff;
+    cursor: not-allowed;
+}
+
+.course-result-count,
+.muted-text {
+    color: gray;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 16px;
+}
+
+.course-card {
+    border: 1px solid #d9d9d9;
+    border-radius: 12px;
+    padding: 22px;
+    margin-bottom: 16px;
+    background: white;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+}
+
+.course-card:hover {
+    border-color: #2cb2ff;
+}
+
+.course-card-open {
+    border-color: #2cb2ff;
+}
+
+.planner-course-highlight {
+    border-color: #f5a623;
+    background: #fff8e8;
+}
+
+.course-card-open.planner-course-highlight {
+    border-color: #f5a623;
+}
+
+.course-card.planner-course-highlight:hover {
+    border-color: #f5a623;
+}
+
+.course-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+}
+
+.course-card-main {
+    flex: 1;
+    text-align: center;
+}
+
+.course-card-main h2 {
+    margin: 0;
+    font-size: 25px;
+}
+
+.course-card-main p {
+    margin: 8px 0 0;
+}
+
+.course-tags {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+}
+
+.course-tag {
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid #2cb2ff;
+    color: #2cb2ff;
+    background: white;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.planner-course-tag {
+    border-color: #f5a623;
+    color: #8a5a00;
+    background: #fff3cd;
+}
+
+.arrow-button {
+    width: 44px;
+    height: 40px;
+    border: none;
+    border-radius: 7px;
+    background: black;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.arrow-button:hover {
+    background: gray;
+}
+
+.course-expanded {
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid #d9d9d9;
+}
+
+.course-description {
+    margin: 0 0 18px;
+    color: #333;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.section-detail {
+    border: 1px solid #d9d9d9;
+    border-radius: 12px;
+    padding: 18px;
+    margin-top: 14px;
+    cursor: pointer;
+    background-color: white;
+}
+
+.section-detail:hover {
+    border-color: #2cb2ff;
+    background-color: rgba(44, 178, 255, 0.06);
+}
+
+.selected-section {
+    border-color: #2cb2ff;
+    background-color: rgba(44, 178, 255, 0.12);
+}
+
+.section-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.section-top-row h3 {
+    margin: 0;
+    font-size: 21px;
+}
+
+.status-pill {
+    padding: 5px 12px;
+    border-radius: 999px;
+    border: 1px solid #2cb2ff;
+    color: #2cb2ff;
+    background: white;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.section-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 22px;
+}
+
+.section-info-grid p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.section-info-grid strong {
+    display: block;
+    margin-bottom: 3px;
+    font-size: 15px;
+}
+
+.campus-map-panel h1 {
+    font-size: 32px;
+    margin: 0 0 20px;
+    text-align: center;
+}
+
+.campus-map-panel .campus-map-wrapper {
+    width: 82%;
+    margin: 0 auto;
+}
+
+.selected-location-card,
+.map-helper-card {
+    margin-top: 16px;
+    border: 1px solid #d9d9d9;
+    border-radius: 12px;
+    padding: 18px;
+    background: white;
+    font-size: 16px;
+}
+
+.selected-location-card h3 {
+    margin: 0 0 12px;
+    font-size: 20px;
+}
+
+.selected-location-card p {
+    margin: 8px 0;
+}
+
+.map-helper-card {
+    color: gray;
+    font-weight: 600;
+}
+
+.campus-map-panel .map-building-info-card {
+    height: 105px;
+    margin-top: 12px;
+    padding: 10px 12px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.campus-map-panel .map-building-info-card h3 {
+    font-size: 16px;
+    margin: 0 0 5px;
+}
+
+.campus-map-panel .map-building-info-card p {
+    font-size: 13px;
+    margin: 3px 0;
+}
+
+.campus-map-panel .selected-location-card {
+    height: 135px;
+    margin-top: 12px;
+    padding: 10px 12px;
+    overflow: hidden;
+    box-sizing: border-box;
+    font-size: 13px;
+}
+
+.campus-map-panel .selected-location-card h3 {
+    font-size: 16px;
+    margin: 0 0 5px;
+}
+
+.campus-map-panel .selected-location-card p {
+    margin: 3px 0;
+}
+
+.add-cart-button {
+    width: 100%;
+    margin-top: 12px;
+    padding: 12px;
+
+    background-color: black;
+    color: white;
+
+    border: none;
+    border-radius: 12px;
+
+    font-family: "Figtree", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.campus-map-panel .add-cart-button {
+    position: absolute;
+    left: 30px;
+    right: 30px;
+    bottom: 30px;
+
+    width: auto;
+    margin-top: 0;
+    padding: 10px;
+}
+
+.add-cart-button:hover {
+    background-color: gray;
+}
+
+.add-cart-button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.cart-message {
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+.campus-map-panel .cart-message {
+    position: absolute;
+    left: 30px;
+    right: 30px;
+    bottom: 8px;
+
+    margin: 0;
+
+    font-size: 12px;
+    text-align: center;
+}
+
+.map-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.65);
+}
+
+.map-modal-content {
+    width: min(1200px, 96vw);
+    max-height: 92vh;
+    overflow: auto;
+
+    padding: 30px;
+
+    background: white;
+
+    border: 1px solid #d9d9d9;
+    border-radius: 12px;
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+.map-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.map-modal-header h2 {
+    margin: 0;
+    font-size: 32px;
+}
+
+.map-modal-close {
+    width: 42px;
+    height: 42px;
+
+    background: black;
+    color: white;
+
+    border: none;
+    border-radius: 7px;
+
+    font-size: 28px;
+
+    cursor: pointer;
+}
+
+.map-modal-close:hover {
+    background: gray;
+}
+
+.map-details-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.map-details-row .map-building-info-card,
+.map-details-row .selected-location-card {
+    height: 160px;
+    min-height: 160px;
+    margin-top: 0;
+    padding: 12px;
+
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.map-details-row .map-building-info-card h3,
+.map-details-row .selected-location-card h3 {
+    font-size: 16px;
+    margin: 0 0 6px;
+}
+
+.map-details-row .map-building-info-card p,
+.map-details-row .selected-location-card p {
+    font-size: 13px;
+    margin: 4px 0;
+}
+
+.campus-map-panel .add-cart-button {
+    margin-top: 12px;
+}
+
+.course-search-page {
+    height: calc(100vh - 65px);
+    min-height: 0;
+    overflow: hidden;
+}
+
+.course-search-layout {
+    height: 100%;
+}
+
+.course-left-panel {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 30px;
+}
+
+.course-left-panel > .panel-heading,
+.course-left-panel > .course-search-form {
+    flex: 0 0 auto;
+}
+
+.course-secondary-buttons {
+    position: static;
+    order: 3;
+    flex: 0 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.course-secondary-buttons button {
+    min-height: 52px;
+    padding: 12px 22px;
+    background: #d9d9d9;
+    color: black;
+    border: none;
+    border-radius: 12px;
+    font-family: "Figtree", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.course-results-scroll {
+    position: static;
+    order: 2;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    padding-right: 6px;
+}
+
+.course-search-notice {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 18px;
+    border: 2px solid #111;
+    border-radius: 8px;
+    background: #fff;
+    color: #111;
+    text-align: center;
+}
+
+.course-search-notice p {
+    margin: 0 0 14px;
+    font-weight: 700;
+}
+
+.course-search-notice button {
+    min-width: 90px;
+    padding: 9px 20px;
+    border: 1px solid #111;
+    border-radius: 6px;
+    background: #111;
+    color: #fff;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.course-search-notice button:hover {
+    background: #333;
+}
+
+.course-results-scroll .course-card {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.course-results-scroll .course-card-header {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.course-results-scroll .course-expanded {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.course-results-scroll .section-detail {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1000px) {
+    .course-search-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .map-details-row {
+        grid-template-columns: 1fr;
+    }
+
+    .map-details-row .map-building-info-card,
+    .map-details-row .selected-location-card {
+        height: auto;
+        min-height: 130px;
+    }
+
+    .campus-map-panel {
+        position: static;
+        height: auto;
+        overflow: visible;
+        padding-bottom: 30px;
+    }
+
+    .campus-map-panel .campus-map-wrapper {
+        width: 100%;
+    }
+
+    .campus-map-panel .add-cart-button,
+    .campus-map-panel .cart-message {
+        position: static;
+        width: 100%;
+        margin-top: 12px;
+    }
+
+    .course-search-page {
+        height: auto;
+        overflow: visible;
+    }
+
+    .course-search-layout {
+        height: auto;
+    }
+
+    .course-left-panel {
+        height: auto;
+        overflow: visible;
+    }
+
+    .course-results-scroll {
+        min-height: 260px;
+        max-height: none;
+        overflow: visible;
+        padding-right: 0;
+    }
+
+    
+}
+
+@media (max-width: 760px) {
+    .course-filter-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .course-search-actions {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .filter-toggle-button,
+    .course-search-button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 650px) {
+    .course-search-page {
+        padding: 30px 14px 50px;
+    }
+
+    .course-page-header h1 {
+        font-size: 36px;
+    }
+
+    .course-left-panel,
+    .campus-map-panel {
+        padding: 22px;
+    }
+
+    .course-search-actions {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-toggle-button,
+    .course-search-button,
+    .clear-filter-button {
+        width: 100%;
+    }
+
+    .section-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .panel-heading {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+
+    .expand-map-button {
+        width: 100%;
+    }
+
+    .course-secondary-buttons {
+        grid-template-columns: 1fr;
+    }
+}
+
+.course-semester-picker {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.course-semester-picker > span {
+    color: #0d2356;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.course-semester-picker small {
+    color: #667085;
+    font-size: 12px;
+}

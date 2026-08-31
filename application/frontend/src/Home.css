@@ -1,0 +1,217 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers all child containers horizontally */
+  width: 100%;
+}
+
+.feature-box {
+  display: flex;
+    flex: 1 1 340px; 
+  flex-direction: column;
+  align-items: center;       /* Centers text and button horizontally inside the box */
+  justify-content: center;   /* Centers contents vertically inside the box */
+  
+  width: 100%;
+  max-width: 500px;          /* Prevents the box from getting too wide on desktops */
+  padding: 50px;
+  background-color: #f8f9fa;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  margin-bottom: 30px;
+  box-sizing: border-box;
+}
+
+.full-width-background {
+  width: 100%;
+  background-color: #fafafa; /* Or your background image */
+  padding: 80px;
+}
+
+.main-grid {
+  display: flex;
+  flex-wrap: wrap;           /* Allows cards to drop to the next row if space runs out */
+  justify-content: center;   /* Centers the group of cards on the screen */
+  gap: 20px;                 /* Clean spacing between the boxes */
+  width: 100%;
+  max-width: 1000px;          /* Keeps total layout width uniform with the featured box */
+  box-sizing: border-box;
+    margin: 0 auto; /* Centers the grid horizontally */
+}
+
+.bottom-grid {
+  display: flex;
+  flex-wrap: wrap;           /* Allows cards to drop to the next row if space runs out */
+  justify-content: center;   /* Centers the group of cards on the screen */
+  gap: 20px;                 /* Keeps total layout width uniform with the featured box */
+    margin: 0 auto;      
+    box-sizing: border-box;    /* Centers the grid horizontally */
+}
+
+.text-box {
+  display: flex;
+    flex: 1 1 340px; 
+  flex-direction: column;
+  align-items: left;       /* Centers text and button horizontally inside the box */
+  justify-content: left;   /* Centers contents vertically inside the box */
+  width: 100%;
+  max-width: 600px;
+  padding: 60px;
+  text-align: left;
+  margin-bottom: 30px;
+  box-sizing: border-box;
+}
+
+.paragraph {
+  display: flex;
+    flex: 1 1 340px; 
+  flex-direction: column;
+  align-items: left;       /* Centers text and button horizontally inside the box */
+  justify-content: left;   /* Centers contents vertically inside the box */
+  width: 100%;
+  max-width: 600px;
+  text-align: left;
+  margin-bottom: 30px;
+  box-sizing: border-box;
+    margin-right: auto; /* Pushes the box to the far left */
+  margin-left: 0;
+}
+
+.background {
+  background-image: url("./assets/mainBackground.jpg");
+
+  background-color: #fafafa;
+
+  /* Prevent the image from repeating*/
+  background-repeat: no-repeat;
+
+  /* Scale the image to completely cover the section */
+  background-size: cover;
+
+  
+
+  height: 120vh;
+
+  /* Center the image within the section */
+  background-position: center;
+
+  /* Ensure the section has enough height to be visible */
+  min-height: 300px;
+}
+
+
+.link-button {
+    min-width: 150px;
+    min-height: 52px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 12px;
+    margin-top: 30px;
+    background-color: black;
+    color: white;
+
+    font-family: "Figtree", sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.link-button:hover {
+    background-color: gray;
+}
+
+.link-button:disabled {
+    background-color: #a8dfff;
+    cursor: not-allowed;
+}
+
+.info-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;       /* Centering contents internally */
+  justify-content: space-between; /* Pushes the link/button to the bottom neatly */
+  
+  flex: 1 1 240px;          /* Growth factor, shrink factor, and baseline ideal width */
+  max-width: 250px;          /* Forces them to stay as neat "small boxes" */
+  min-height: 180px;         /* Uniform height for box alignment */
+  
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.card-link {
+  color: #2c3e50;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.card-link:hover {
+  color: #0038a1;
+}
+
+@media (max-width: 600px) {
+
+  .home-hero {
+
+    padding: 60px 16px !important;
+
+  }
+
+  .home-intro-section {
+
+    padding: 50px 16px !important;
+
+  }
+
+  .full-width-background {
+
+    padding: 50px 16px;
+
+    box-sizing: border-box;
+  }
+
+  .main-grid,
+
+  .bottom-grid {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .text-box,
+  .feature-box,
+
+  .paragraph {
+    width: 100%;
+
+    max-width: none;
+
+    padding: 24px;
+
+    box-sizing: border-box;
+
+  }
+
+  .home-responsive-image {
+
+    
+    width: 100%;
+
+    max-width: 100%;
+  }
+
+  .home-info-grid {
+    
+    padding: 50px 0 !important;
+  }
+}

@@ -1,0 +1,53 @@
+.nvabarpathBackground {
+
+  background: #eef1f5;
+
+  width: 100%;
+}
+
+.NvaBarPathe {
+
+  display: flex;
+
+  width: 100%;
+
+  max-width: 1560px;
+
+  margin: 0 auto;
+
+  padding: 8px 18px;
+
+  gap: 7px;
+
+  color: #64748b;
+
+  font-size: 13px;
+
+  text-align: left;
+
+}
+
+.NvaBarPathe a {
+
+  color: #334155;
+
+  text-decoration: none;
+
+}
+
+.NvaBarPathe strong {
+
+  color: #475569;
+
+}
+
+@media (max-width: 560px) {
+
+  .NvaBarPathe {
+
+    padding-right: 10px;
+
+    padding-left: 10px;
+    
+  }
+}

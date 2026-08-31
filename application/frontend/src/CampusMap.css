@@ -1,0 +1,223 @@
+.campus-map-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #f1f5f9;
+}
+
+.campus-map-background {
+  width: 100%;
+  display: block;
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.campus-map-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.campus-map-overlay svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.campus-map-overlay svg * {
+  fill-opacity: 0 !important;
+  stroke-opacity: 0 !important;
+  pointer-events: none;
+}
+
+.campus-map-overlay svg .interactive-building,
+.campus-map-overlay svg .interactive-building * {
+  pointer-events: all;
+  cursor: pointer;
+}
+
+.campus-map-overlay svg .selected-building,
+.campus-map-overlay svg .selected-building * {
+  fill: #36b1d0 !important;
+  fill-opacity: 0.7 !important;
+  stroke: #207386 !important;
+  stroke-opacity: 1 !important;
+  stroke-width: 6px !important;
+  filter: drop-shadow(0 0 8px rgba(255, 170, 0, 0.6));
+}
+
+.campus-map-overlay svg .hovered-building,
+.campus-map-overlay svg .hovered-building * {
+  fill: #ff4444 !important;
+  fill-opacity: 0.7 !important;
+  stroke: #cc0000 !important;
+  stroke-opacity: 1 !important;
+  stroke-width: 6px !important;
+  filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.6));
+}
+
+.map-building-info-card {
+  margin-top: 16px;
+  border: 1px solid #d9d9d9;
+  border-radius: 12px;
+  padding: 18px;
+  background: white;
+  font-size: 16px;
+  height: 150px;
+  box-sizing: border-box;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+}
+
+.map-building-info-card h3 {
+  margin: 0 0 12px;
+  font-size: 20px;
+}
+
+.map-building-info-card p {
+  margin: 8px 0;
+}
+
+.campus-map-panel {
+  position: sticky;
+  top: 95px;
+  align-self: flex-start;
+  overflow: visible;
+}
+
+.campus-map-panel .campus-map-wrapper {
+  width: 88%;
+  margin: 0 auto;
+}
+
+.map-building-info-card {
+  height: 120px;
+  padding: 12px 14px;
+  overflow: hidden;
+}
+
+.map-building-info-card h3 {
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+
+.map-building-info-card p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.selected-location-card {
+  padding: 12px 14px;
+  font-size: 14px;
+}
+
+.selected-location-card h3 {
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+
+.selected-location-card p {
+  margin: 5px 0;
+}
+
+.add-cart-button {
+  margin-top: 10px;
+  padding: 10px;
+}
+.map-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+    background: rgba(0, 0, 0, 0.65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.map-modal-content {
+    width: min(1200px, 96vw);
+    max-height: 94vh;
+    overflow: hidden;
+    background: white;
+    border: 1px solid #d9d9d9;
+    border-radius: 12px;
+    padding: 22px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+}
+
+.map-modal-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    flex-shrink: 0;
+}
+
+.map-modal-header h2 {
+    margin: 0;
+    font-size: 32px;
+    text-align: center;
+}
+
+.map-modal-close {
+    position: absolute;
+    right: 0;
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 7px;
+    background: black;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.map-modal-close:hover {
+    background: gray;
+}
+
+.map-modal-content .campus-map-wrapper {
+    width: min(860px, calc((94vh - 255px) * 1.33));
+    max-width: 100%;
+    margin: 0 auto;
+    flex-shrink: 0;
+}
+
+.map-modal-content .map-building-info-card {
+    width: min(860px, calc((94vh - 255px) * 1.33));
+    max-width: 100%;
+    height: 135px;
+    margin: 12px auto 0;
+    padding: 10px 14px;
+    overflow: hidden;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    display: block;
+}
+
+.map-modal-content .map-building-info-card h3 {
+    font-size: 17px;
+    line-height: 1.2;
+    margin: 0 0 6px;
+}
+
+.map-modal-content .map-building-info-card p {
+    font-size: 13px;
+    line-height: 1.25;
+    margin: 4px 0;
+    overflow-wrap: anywhere;
+}
+
+.map-modal-content .map-building-info-card strong {
+    font-size: 13px;
+    line-height: 1.2;
+}

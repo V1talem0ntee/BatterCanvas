@@ -1,0 +1,481 @@
+.cart-page {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 18px 48px;
+  color: #17223b;
+  text-align: left;
+}
+
+
+.cart-title {
+  padding: 12px 0 10px;
+}
+
+.cart-title h1 {
+  margin: 0;
+  color: var(--navy, #0d1f4e);
+  font-size: 40px;
+}
+
+.cart-error {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  padding: 10px 14px;
+  border: 1px solid #f2c2c2;
+  border-radius: 6px;
+  background: #fdecec;
+  color: #9b1c1c;
+  font-size: 13px;
+}
+
+.cart-error button {
+  padding: 5px 10px;
+  border: 1px solid #9b1c1c;
+  border-radius: 4px;
+  background: #fff;
+  color: #9b1c1c;
+  cursor: pointer;
+}
+
+.cart-loading {
+  padding: 40px 0;
+  color: #64748b;
+  text-align: center;
+}
+
+.cart-dashboard {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  grid-template-areas:
+    "graduate graduate"
+    "semester summary"
+    "classes summary"
+    "requirements conflicts";
+  gap: 16px;
+  align-items: stretch;
+}
+
+.graduate-course-prompt {
+  grid-area: graduate;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px 24px;
+  border: 1px solid #b9d2f5;
+  border-left: 5px solid #2458a6;
+  border-radius: 8px;
+  background: #f3f8ff;
+  color: #17223b;
+}
+
+.graduate-course-prompt h2 {
+  margin: 3px 0 6px;
+  font-size: 19px;
+}
+
+.graduate-course-prompt p {
+  margin: 0;
+  color: #475569;
+  font-size: 13px;
+}
+
+.graduate-course-eyebrow {
+  color: #2458a6;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.graduate-course-link {
+  flex: 0 0 auto;
+  padding: 10px 16px;
+  border-radius: 5px;
+  background: #2458a6;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.graduate-course-link:hover {
+  background: #1d4787;
+}
+
+.semester-info-panel {
+  grid-area: semester;
+}
+
+.class-list-panel {
+  grid-area: classes;
+}
+
+.requirements-panel {
+  grid-area: requirements;
+}
+
+.cart-summary-panel {
+  grid-area: summary;
+}
+
+.conflicts-panel {
+  grid-area: conflicts;
+}
+
+.cart-panel {
+  overflow: hidden;
+  border: 1px solid #d8dee8;
+  border-radius: 8px;
+  background: #f4f6f8;
+}
+
+.cart-panel > header {
+  display: flex;
+  min-height: 46px;
+  padding: 12px 16px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  border-bottom: 1px solid #d8dee8;
+  background: #dedfe1;
+}
+
+.cart-panel > header h2 {
+  margin: 0;
+  color: #17223b;
+  font-family: 'Figtree', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.cart-panel > header > span {
+  color: #64748b;
+  font-size: 12px;
+}
+
+/* Semester Info */
+
+.semester-info-panel .semester-info-body {
+  padding: 10px 14px;
+}
+
+.semester-info-body p {
+  margin: 0;
+  color: #334155;
+  font-size: 12px;
+}
+
+.semester-info-body select {
+  width: 100%;
+  padding: 7px 9px;
+  border: 1px solid #bfc9d6;
+  border-radius: 5px;
+  background: #fff;
+  color: #17223b;
+  font: inherit;
+  font-size: 12px;
+}
+
+.change-term-button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  background: #aab0b8;
+  color: #1c1c1c;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.change-term-button:hover {
+  background: #9aa0a8;
+}
+
+/* Class list */
+
+.class-list-panel {
+  background: #dedfe1;
+  padding: 14px;
+}
+
+.class-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.class-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 6px;
+  background: #adadad;
+  color: #1c1c1c;
+}
+
+.class-row-main {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.class-row-index {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  opacity: .7;
+}
+
+.class-row-main strong {
+  font-size: 15px;
+}
+
+.class-row-meta {
+  color: #2c2c2c;
+  font-size: 12px;
+  opacity: .85;
+}
+
+.remove-button {
+  flex-shrink: 0;
+  padding: 7px 14px;
+  border: 1px solid #7a2020;
+  border-radius: 5px;
+  background: #fff;
+  color: #9b1c1c;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.remove-button:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+/* Requirements check */
+
+.requirements-panel .requirements-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 16px;
+}
+
+.requirement-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border: 1px solid #d4dae3;
+  border-radius: 5px;
+  background: #fff;
+}
+
+.requirement-course {
+  min-width: 90px;
+  color: #17223b;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.requirement-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.requirement-tag {
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #dff4ee;
+  color: #196158;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.requirement-tag.none {
+  background: #f1f1f1;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* Cart summary */
+
+.cart-summary-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-summary-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.cart-summary-body dl {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 14px;
+}
+
+.cart-summary-body dl div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cart-summary-body dt {
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.cart-summary-body dd {
+  margin: 0;
+  color: #17223b;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.cart-summary-body dd.warn {
+  color: #b45309;
+}
+
+.cart-summary-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0 0 14px;
+  padding: 0;
+  list-style: none;
+  overflow-y: auto;
+}
+
+.cart-summary-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 8px;
+  border-radius: 4px;
+  background: #fff;
+  color: #334155;
+  font-size: 12px;
+}
+
+.enroll-message {
+  margin: 0 0 10px;
+  padding: 8px 10px;
+  border-radius: 5px;
+  background: #fff6df;
+  color: #78450b;
+  font-size: 11px;
+}
+
+.proceed-button {
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  background: #9c9c9c;
+  color: #1c1c1c;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.proceed-button:hover:not(:disabled) {
+  background: #8c8c8c;
+}
+
+.proceed-button:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+/* Conflicts */
+
+.conflicts-panel {
+  min-height: 220px;
+}
+
+.conflict-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.conflict-item {
+  padding: 9px 10px;
+  border: 1px solid #d4dae3;
+  border-left: 4px solid #dc2626;
+  border-radius: 4px;
+  background: #fff;
+  color: #334155;
+}
+
+.conflict-item.walking {
+  border-left-color: #d97706;
+}
+
+.conflict-item strong {
+  display: block;
+  font-size: 12px;
+}
+
+.conflict-item span {
+  display: block;
+  color: #64748b;
+  font-size: 10px;
+}
+
+.conflict-item small {
+  display: block;
+  margin-top: 2px;
+  font-size: 10px;
+}
+
+.panel-empty {
+  margin: 0;
+  padding: 22px 16px;
+  color: #64748b;
+  font-size: 12px;
+  text-align: center;
+}
+
+.panel-empty.success {
+  color: #047857;
+}
+
+.panel-empty a {
+  color: #2458a6;
+}
+
+@media (max-width: 960px) {
+  .graduate-course-prompt {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .cart-dashboard {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "graduate"
+      "semester"
+      "summary"
+      "classes"
+      "requirements"
+      "conflicts";
+  }
+}
