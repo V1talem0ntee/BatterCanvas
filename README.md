@@ -230,9 +230,4 @@ No part of this repository may be reproduced, distributed, or transmitted withou
 *This document may be updated during the semester. Students are responsible for reviewing the latest version.*
 
 
-
-
-
-#   B a t t e r C a n v a s  
- #   B a t t e r C a n v a s  
  
